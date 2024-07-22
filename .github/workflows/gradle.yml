@@ -51,6 +51,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Build docker image
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/cleanfree-config-server:latest -f Dockerfile .
+
       - name: Push image to docker hub
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/cleanfree-config-server:latest
 
