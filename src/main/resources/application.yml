@@ -1,0 +1,26 @@
+server:
+  port: 8071
+
+spring:
+  application:
+    name: cleanfree-config-server
+  profiles:
+    active:
+      - git
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/choparkjeong/CleanFree_config.git
+          default-label: main
+          username: ${username}
+          password: ${password}
+          search-paths:
+            - admin-service
+            - main-service
+        encrypt:
+          enabled: false
+
+encrypt:
+  key: ${key}
