@@ -27,7 +27,7 @@ jobs:
         env:
           spring.cloud.config.server.git.username: ${{ secrets.GIT_USERNAME }}
           spring.cloud.config.server.git.password: ${{ secrets.GIT_PASSWORD }}
-          encrypt.key: ${{ secrets.ENCRYPT_KEY }}
+          encrypt.key: ${{ secrets.CLEANFREE_ENCRYPT_KEY }}
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
