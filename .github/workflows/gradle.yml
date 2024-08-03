@@ -112,6 +112,8 @@ jobs:
           sudo docker rm cleanfree-config-server
 
       - name: Docker run new container
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: sudo docker run -d --name cleanfree-config-server -p 8071:8071 --net cleanfree-network $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Delete old docker image
